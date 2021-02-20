@@ -3,10 +3,10 @@ name: 刷步数
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  watch:
+    types: [started]
   schedule:
-    - cron: 0 12 * * *
+    - cron: '0 12 * * *'
 
 jobs:
   build:
