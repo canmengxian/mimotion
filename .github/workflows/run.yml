@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: 0 10 * * *
+    - cron: 0 12 * * *
 
 jobs:
   build:
@@ -33,3 +33,9 @@ jobs:
         ${pwd}
         ${step}
         EOF
+        
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 1
